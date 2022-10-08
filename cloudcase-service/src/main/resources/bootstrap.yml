@@ -1,0 +1,12 @@
+spring:
+  application:
+    name: nacos-service
+  cloud:
+    nacos:
+      discovery:   #将自身也注册到 nacos
+        server-addr: 192.168.135.128:8848
+      config:   #设置配置中心
+        server-addr: 192.168.135.128:8848
+        file-extension: yml
+        #命名空间不同环境配置，可以在nacos新建不同环境命名空间，默认对应public 下的配置
+        #namespace: a5073446-fae6-48ef-a887-8787fc4bf5d0

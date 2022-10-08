@@ -1,0 +1,33 @@
+server:
+  port: 9651
+spring:
+  application:
+    name: clouddem-service #在注册中心网站也会显示出来。这个很重要，这在以后的服务与服务之间相互调用一般都是根据这个name
+  #将服务提供者服务注册到 Eureka 注册中心
+  #数据源配置
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    url: jdbc:mysql://localhost:3306/navinfo_tsp?useUnicode=true&characterEncoding=utf-8
+    username: root
+    password: 123456
+    driverClassName: com.mysql.jdbc.Driver
+    dbcp2:
+      initial-size: 5
+      min-idle: 5
+      max-idle: 20
+      max-wait-millis: 60000
+  #连接池的配置信息
+  # 初始化大小，最小，最大
+eureka:
+  client:
+    registerWithEureka: true # 服务注册开关
+    fetchRegistry: true # 服务发现开关
+    serviceUrl: # 注册到哪一个Eureka Server服务注册中心，多个中间用逗号分隔
+      defaultZone: http://localhost:6001/eureka
+  instance:
+    instanceId: ${spring.application.name}:${server.port} #在注册中心中显示服务端口，就不显示主机名了
+logging:
+  level:
+    com.sellergoods.mapper: debug
+
+
