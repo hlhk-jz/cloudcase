@@ -25,7 +25,9 @@
     </parent>
 
     <properties>
+<!--
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+-->
         <!-- spring cloud 采用 Finchley.SR2 版本 -->
         <spring-cloud.version>Finchley.SR2</spring-cloud.version>
     </properties>
